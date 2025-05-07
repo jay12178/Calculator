@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ultra Unblocked Games - Home</title>
+  <style>
+    /* Theme variables */
+    :root {
+      --bg-color: #f0f8ff;
+      --text-color: #333;
+      --header-bg: linear-gradient(45deg, #f44336, #ff9800);
+      --sidebar-bg: linear-gradient(135deg, #4caf50, #8bc34a);
+      --panel-bg: #fff;
+      --button-bg: linear-gradient(135deg, #4caf50, #8bc34a);
+      --button-hover-bg: linear-gradient(135deg, #81c784, #388e3c);
+    }
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --header-bg: linear-gradient(45deg, #333, #111);
+      --sidebar-bg: linear-gradient(135deg, #444, #222);
+      --panel-bg: #222;
+    }
+
+    /* Base styles */
+    body {
+      margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: var(--header-bg);
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      letter-spacing: 2px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    /* Icons */
+    #sidebarToggle, #settingsToggle {
+      position: fixed;
+      top: 15px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1100;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+    #sidebarToggle { left: 15px; }
+    #settingsToggle { right: 15px; }
+
+    /* Sidebar */
+    #sidebar {
+      position: fixed; top: 0; left: 0;
+      width: 250px; height: 100%;
+      background: var(--sidebar-bg);
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      transform: translateX(-100%); /* Hidden by default */
+      transition: transform 0.3s ease; /* Smooth transition */
+      z-index: 1000;
+    }
+    #sidebar h2 {
+      margin-top: 40px;
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    /* Settings panel */
+    #settingsPanel {
+      position: fixed; top: 0; right: 0;
+      width: 300px; height: 100%;
+      background: var(--panel-bg);
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transform: translateX(100%); /* Hidden by default */
+      transition: transform 0.3s ease, background 0.3s;
+      z-index: 1000;
+    }
+    #settingsPanel h2 {
+      margin-top: 0;
+    }
+    #settingsPanel label {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+    #settingsPanel input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    /* Content container */
+    .container {
+      width: 85%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 0 40px;
+    }
+    .about-section {
+      background: var(--panel-bg);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+    .about-section h2 {
+      font-size: 2.5em;
+      color: #ff5722;
+      margin-bottom: 20px;
+    }
+    .about-section p {
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .button {
+      background: var(--button-bg);
+      color: #fff;
+      font-size: 1.1em;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      margin: 10px 0;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .button:hover {
+      background: var(--button-hover-bg);
+      transform: scale(1.05);
+    }
+
+    /* Embed containers */
+    .embed-container {
+      margin-top: 30px;
+      display: none;
+      text-align: center;
+    }
+    .embed-container embed {
+      width: 100%;
+      max-width: 1280px;
+      height: 720px;
+      border-radius: 12px;
+    }
+
+    /* Square fullscreen icon button */
+    .fullscreen-btn {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      background: var(--button-bg);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .fullscreen-btn:hover {
+      background: var(--button-hover-bg);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .container { width: 95%; }
+      #sidebar { width: 80%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ultra Unblocked Games</h1>
+  </header>
+
+  <!-- Hamburger & Settings Icons -->
+  <button id="sidebarToggle">☰</button>
+  <button id="settingsToggle">⚙️</button>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <h2>Games</h2>
+    <button class="button" id="run3Button">Run 3</button>
+    <button class="button" id="slopeButton">Slope</button>
+    <button class="button" id="templeButton">Temple Run</button>
+  </div>
+
+  <!-- Settings Panel -->
+  <div id="settingsPanel">
+    <h2>Settings</h2>
+    <label>
+      <input type="checkbox" id="darkModeToggle" />
+      Dark Mode
+    </label>
+  </div>
+
+  <div class="container">
+    <div class="about-section">
+      <h2>Welcome to Ultra Unblocked Games</h2>
+      <p>
+        Discover tons of fun, unblocked games that you can play anytime, anywhere.
+        Whether you’re at school, at home, or just looking for a quick break. This
+        has taken me a really long time so don’t leak it.
+      </p>
+    </div>
+
+    <!-- Run 3 Embed -->
+    <div class="embed-container" id="run3Embed">
+      <button class="fullscreen-btn" onclick="fullscreen('run3Embed')">⛶</button>
+      <embed type="text/plain" src="https://nettleweb.com/lj0xpunh?hidegui=1" />
+    </div>
+
+    <!-- Slope Embed -->
+    <div class="embed-container" id="slopeEmbed">
+      <button class="fullscreen-btn" onclick="fullscreen('slopeEmbed')">⛶</button>
+      <embed type="text/plain" src="https://nettleweb.com/lhf6jyzb?hidegui=1" />
+    </div>
+
+    <!-- Temple Run Embed -->
+    <div class="embed-container" id="templeEmbed">
+      <button class="fullscreen-btn" onclick="fullscreen('templeEmbed')">⛶</button>
+      <embed type="text/plain" src="https://nettleweb.com/ltzjs7mk?hidegui=1" />
+    </div>
+  </div>
+
+  <script>
+    // Sidebar toggle
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    sidebarToggle.addEventListener('click', function() {
+      if (sidebar.style.transform === 'translateX(0px)' || sidebar.style.transform === '') {
+        sidebar.style.transform = 'translateX(-100%)'; // Hide sidebar
+      } else {
+        sidebar.style.transform = 'translateX(0px)'; // Show sidebar
+      }
+    });
+
+    // Settings panel toggle
+    const settingsPanel = document.getElementById('settingsPanel');
+    const settingsToggle = document.getElementById('settingsToggle');
+    settingsToggle.addEventListener('click', function() {
+      if (settingsPanel.style.transform === 'translateX(0px)' || settingsPanel.style.transform === '') {
+        settingsPanel.style.transform = 'translateX(100%)'; // Hide settings
+      } else {
+        settingsPanel.style.transform = 'translateX(0px)'; // Show settings
+      }
+    });
+
+    // Dark mode persistence
+    const darkToggle = document.getElementById('darkModeToggle');
+    const applyTheme = (dark) => {
+      document.body.classList.toggle('dark-mode', dark);
+      localStorage.setItem('darkMode', dark);
+    };
+    const saved = localStorage.getItem('darkMode') === 'true';
+    darkToggle.checked = saved;
+    applyTheme(saved);
+    darkToggle.addEventListener('change', () => applyTheme(darkToggle.checked));
+
+    // Embed show/hide
+    const embeds = {
+      run3Embed: document.getElementById('run3Embed'),
+      slopeEmbed: document.getElementById('slopeEmbed'),
+      templeEmbed: document.getElementById('templeEmbed')
+    };
+    function showEmbed(id) {
+      Object.keys(embeds).forEach(key => {
+        embeds[key].style.display = (key === id && embeds[key].style.display !== 'block')
+          ? 'block'
+          : 'none';
+      });
+    }
+    document.getElementById('run3Button').onclick = () => showEmbed('run3Embed');
+    document.getElementById('slopeButton').onclick = () => showEmbed('slopeEmbed');
+    document.getElementById('templeButton').onclick = () => showEmbed('templeEmbed');
+
+    // Fullscreen helper
+    function fullscreen(containerId) {
+      const embed = document.querySelector(`#${containerId} embed`);
+      if (embed.requestFullscreen) embed.requestFullscreen();
+      else if (embed.webkitRequestFullscreen) embed.webkitRequestFullscreen();
+      else if (embed.mozRequestFullScreen) embed.mozRequestFullScreen();
+      else if (embed.msRequestFullscreen) embed.msRequestFullscreen();
+    }
+  </script>
+</body>
+</html>
